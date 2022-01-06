@@ -1,0 +1,12 @@
+
+terraform.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+.terraform/
+
+ssh_keys/**
+!ssh_keys/test
+!ssh_keys/test.pub
+
+clouds.yaml

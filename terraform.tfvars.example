@@ -1,0 +1,36 @@
+# jenkins admin password
+admin_password = "wale!wale"
+
+# SSH Private Key
+ssh_key_path = "./ssh_keys/test"
+
+# jenkins network settings
+jenkins_int_net = "10.0.200.1/24"
+jenkins_default_address_pool = "10.0.201.1/24"
+
+
+docker_image_repo = "docker.io/dockereng"
+
+
+cluster_name = "jenkins"
+
+# Node counts
+master_count = 1
+worker_count = 0
+
+master_module = true
+worker_module = false
+
+# ID of the available and shared public network
+external_network_id = "047ae35b-2269-4bb0-acc2-6a7726a27fe2"
+external_network_name = "public"
+
+
+# Machine images
+master_image_name = "bionic-server-cloudimg-amd64-20200724"
+worker_image_name = "bionic-server-cloudimg-amd64-20200724"
+
+# Machine types/flavors
+master_flavor = "dev.cfg"
+worker_flavor = "dev.cfg"
+

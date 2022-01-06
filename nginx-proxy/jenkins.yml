@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+
+  web:
+    image: 'jenkins/jenkins:lts'
+    privileged: true
+    restart: always
+    user: root
+    #ports:
+    #  - 8080:8080
+    #  - 50000:50000
+    container_name: jenkins_1
+    volumes:
+      - /root/jenkins/home:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      VIRTUAL_HOST: "jenkins.openyourlab.com"
+      VIRTUAL_NETWORK: nginx-proxy-net
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: "jenkins.openyourlab.com"
+      LETSENCRYPT_EMAIL: "admin@openyourlab.com"
+    networks:
+      nginx-proxy-net:
+
+networks:
+  nginx-proxy-net:
+    external:
+      name: proxy-tier
