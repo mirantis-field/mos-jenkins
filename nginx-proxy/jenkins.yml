@@ -15,11 +15,11 @@ services:
       - /root/jenkins/home:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      VIRTUAL_HOST: "jenkins.openyourlab.com"
+      VIRTUAL_HOST: "jenkins.mos.presales.demo.mirantis.com"
       VIRTUAL_NETWORK: nginx-proxy-net
       VIRTUAL_PORT: 8080
-      LETSENCRYPT_HOST: "jenkins.openyourlab.com"
-      LETSENCRYPT_EMAIL: "admin@openyourlab.com"
+      LETSENCRYPT_HOST: "jenkins.mos.presales.demo.mirantis.com"
+      LETSENCRYPT_EMAIL: "dvirassamy@mirantis.com"
     networks:
       nginx-proxy-net:
 

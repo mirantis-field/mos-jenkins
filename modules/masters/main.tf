@@ -19,6 +19,7 @@ resource "openstack_compute_instance_v2" "jenkins-master" {
   network {
     name = var.internal_network_name
   }
+
   user_data = <<EOF
 #!/bin/bash
 # Use full qualified private DNS name for the host name.  Kube wants it this way.
@@ -26,6 +27,12 @@ HOSTNAME=$(curl http://169.254.169.254/latest/meta-data/hostname)
 echo $HOSTNAME > /etc/hostname
 sed -i "s|\(127\.0\..\.. *\)localhost|\1$HOSTNAME|" /etc/hosts
 hostname $HOSTNAME
+git clone https://github.com/mirantis-field/mos-jenkins.git /home/ubuntu/mos-jenkins
+chmod +x /home/ubuntu/mos-jenkins/nginx-proxy/install.sh
+apt update
+apt install docker.io --yes
+apt install docker-compose --yes
+docker network create --driver bridge proxy-tier
 EOF
 
 }

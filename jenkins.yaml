@@ -1,8 +1,0 @@
-#cloud-config
-runcmd:
-  - git clone https://github.com/mirantis-field/mos-jenkins.git /home/ubuntu/mos-jenkins
-  - sudo apt update
-  - sudo apt install docker.io
-  - sudo docker network create --driver bridge proxy-tier
-  - sudo docker-compose -f /home/ubuntu/mos-jenkins/nginx-proxy/nginx-proxy-letsencrypt.yml up
-  - sudo docker-compose -f /home/ubuntu/mos-jenkins/nginx-proxy/jenkins.yml up
