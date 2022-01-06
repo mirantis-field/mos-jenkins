@@ -13,7 +13,7 @@ services:
      - /etc/nginx/conf.d
      - /etc/nginx/vhost.d
      - /usr/share/nginx/html
-     - /home/ubuntu/nginx-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+     - /home/ubuntu/mos-jenkins/nginx-proxy/nginx.conf:/etc/nginx/nginx.conf:ro
      - cert-store:/etc/nginx/certs:ro
     networks:
      nginx-proxy-net:
@@ -28,7 +28,7 @@ services:
      - nginx
     volumes:
      - /var/run/docker.sock:/tmp/docker.sock:ro
-     - /home/ubuntu/nginx-proxy/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
+     - /home/ubuntu/mos-jenkins/nginx-proxy/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
     command: [
         -notify-sighup,
         nginx_proxy_1,
